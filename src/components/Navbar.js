@@ -9,9 +9,12 @@ function Navbar() {
     <nav className="bg-white shadow-lg fixed w-full z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
+          {/* Logo and Baker's Name */}
+          <Link to="/" className="flex items-center space-x-3">
             <img src={logo} alt="Shefa Bakery Logo" className="h-12 w-auto" />
+            <span className="text-xl font-bold text-gray-800">
+              Shefa Bakery
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
