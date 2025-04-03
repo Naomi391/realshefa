@@ -35,17 +35,33 @@ import cake32 from "../assets/cake32.jpg";
 import cake33 from "../assets/cake33.jpg";
 import cake34 from "../assets/cake34.jpg";
 import cake35 from "../assets/cake35.jpg";
+import cake37 from "../assets/cake37.jpg";
+import cake38 from "../assets/cake38.jpg";
+import cake39 from "../assets/cake39.jpg";
+import cake40 from "../assets/cake40.jpg";
+import cake41 from "../assets/cake41.jpg";
+import cake42 from "../assets/cake42.jpg";
+import cake43 from "../assets/cake43.jpg";
+import cake44 from "../assets/cake44.jpg";
+import cake45 from "../assets/cake45.jpg";
+import cake46 from "../assets/cake46.jpg";
+import cake47 from "../assets/cake47.jpg";
+import cake48 from "../assets/cake48.jpg";
+import cake49 from "../assets/cake49.jpg";
+import cake50 from "../assets/cake50.jpg";
 
 const cakes = [
   {
     flavor: "Chocolate-mint",
     images: [cake1, cake2, cake8, cake30, cake31, cake32],
   },
-  { flavor: "Vanilla", images: [cake3, cake4, cake7, cake24, cake25, cake26] },
-  { flavor: "Pina colada", images: [cake5, cake6, cake9] },
+  { flavor: "Vanilla", images: [cake7, cake24, cake25, cake26] },
+  { flavor: "Pina colada", images: [cake6, cake9] },
   {
     flavor: "Orange",
     images: [
+      cake3,
+      cake4,
       cake5,
       cake10,
       cake11,
@@ -69,21 +85,42 @@ const cakes = [
       cake35,
     ],
   },
-  { flavor: "Mixed flavor", images: [cake5] },
-  { flavor: "White forest", images: [cake5] },
-  { flavor: "Blueberry", images: [cake5] },
+  { flavor: "White forest", images: [cake37, cake38, cake39] },
+  { flavor: "Mixed flavor", images: [cake42, cake43, cake44, cake45, cake46] },
+  { flavor: "Blueberry", images: [cake40, cake41] },
+  { flavor: "Corporate", images: [cake47, cake48, cake49, cake50] },
 ];
 
 function Gallery() {
   const [selectedFlavor, setSelectedFlavor] = useState("");
+  const [carouselIndex, setCarouselIndex] = useState(
+    cakes.reduce((acc, cake) => {
+      acc[cake.flavor] = 0;
+      return acc;
+    }, {})
+  );
 
   const filteredCakes = selectedFlavor
     ? cakes.filter((cake) => cake.flavor === selectedFlavor)
     : cakes;
 
+  const handleNext = (flavor, maxIndex) => {
+    setCarouselIndex((prev) => ({
+      ...prev,
+      [flavor]: prev[flavor] < maxIndex ? prev[flavor] + 1 : 0,
+    }));
+  };
+
+  const handlePrev = (flavor, maxIndex) => {
+    setCarouselIndex((prev) => ({
+      ...prev,
+      [flavor]: prev[flavor] > 0 ? prev[flavor] - 1 : maxIndex,
+    }));
+  };
+
   return (
-    <div className="pt-20 text-center bg-pink-100 min-h-screen">
-      <h1 className="text-4xl font-bold mb-8 text-brown-700">Our Gallery</h1>
+    <div className="pt-24 text-center bg-pink-100 min-h-screen">
+      {/* Title removed */}
 
       {/* Flavor Filter */}
       <div className="mb-6">
@@ -103,25 +140,53 @@ function Gallery() {
         </select>
       </div>
 
-      {/* Cake Grid */}
+      {/* Cake Gallery */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 max-w-6xl mx-auto">
-        {filteredCakes.map((cake) =>
-          cake.images.map((image, index) => (
+        {filteredCakes.map((cake) => {
+          const maxIndex = cake.images.length - 1;
+          const currentImage = cake.images[carouselIndex[cake.flavor]];
+
+          return (
             <div
-              key={`${cake.flavor}-${index}`}
-              className="bg-white shadow-md p-4 rounded-lg"
+              key={cake.flavor}
+              className="relative bg-white shadow-md p-4 rounded-lg"
             >
+              {/* Image Display (Full Container) */}
               <img
-                src={image}
+                src={currentImage}
                 alt={cake.flavor}
                 className="w-full h-96 object-cover rounded-md"
               />
+
+              {/* Navigation Buttons */}
+              {cake.images.length > 1 && (
+                <>
+                  <button
+                    onClick={() => handlePrev(cake.flavor, maxIndex)}
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 
+                    bg-gray-900 text-white p-3 rounded-full text-2xl shadow-md 
+                    hover:bg-gray-700 transition focus:outline-none focus:ring-2 
+                    focus:ring-gray-500"
+                  >
+                    &#8592;
+                  </button>
+                  <button
+                    onClick={() => handleNext(cake.flavor, maxIndex)}
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 
+                    bg-gray-900 text-white p-3 rounded-full text-2xl shadow-md 
+                    hover:bg-gray-700 transition focus:outline-none focus:ring-2 
+                    focus:ring-gray-500"
+                  >
+                    &#8594;
+                  </button>
+                </>
+              )}
               <p className="mt-2 text-lg font-semibold text-gray-700">
-                {cake.flavor} Cake
+                {cake.flavor} Cakes
               </p>
             </div>
-          ))
-        )}
+          );
+        })}
       </div>
 
       {/* Footer */}
