@@ -57,7 +57,7 @@ function ContactUs() {
         {/* Social Media Links */}
         <div className="space-x-4">
           <a
-            href="https://www.facebook.com/ShefaBakery"
+            href="https://www.facebook.com/profile.php?id=61574552080433"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600"
@@ -65,7 +65,7 @@ function ContactUs() {
             Facebook
           </a>
           <a
-            href="https://www.instagram.com/ShefaBakery"
+            href="https://www.instagram.com/the_shefa_bakery/?hl=en"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600"
@@ -73,12 +73,12 @@ function ContactUs() {
             Instagram
           </a>
           <a
-            href="https://twitter.com/ShefaBakery"
+            href="https://www.tiktok.com/@shefa_bakery"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600"
           >
-            Twitter
+            TikTok
           </a>
         </div>
 
@@ -131,17 +131,7 @@ function ContactUs() {
         </div>
 
         {/* Google Map */}
-        <div className="mt-8">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15791.736297460267!2d36.91941974768772!3d-1.3620643289353332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f295179b9a0ad%3A0x4f9fd5c6d1778b24!2sKitengela!5e0!3m2!1sen!2ske!4v1678171062722!5m2!1sen!2ske"
-            width="100%"
-            height="450"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            title="Google Map of Shefa Bakery in Kitengela"
-          ></iframe>
-        </div>
+        <div className="mt-8"></div>
       </div>
 
       {/* Footer */}

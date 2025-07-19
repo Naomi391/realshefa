@@ -14,6 +14,7 @@ function Home() {
       }}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 pb-20">
+        {/* Order Now Button */}
         <Link to="/order">
           <button className="mt-40 px-6 py-3 bg-white text-black text-lg font-bold rounded-full shadow-md border-2 border-black hover:bg-gray-100 transition transform hover:scale-110 ml-96">
             Order Now

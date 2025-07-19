@@ -1,5 +1,6 @@
 import React from "react";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { SiTiktok } from "react-icons/si"; // TikTok icon
 
 function Footer() {
   return (
@@ -20,11 +21,11 @@ function Footer() {
           <FaInstagram size={24} className="hover:text-gray-400 transition" />
         </a>
         <a
-          href="https://twitter.com/yourpage"
+          href="https://www.tiktok.com/@shefa_bakery" 
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaTwitter size={24} className="hover:text-gray-400 transition" />
+          <SiTiktok size={24} className="hover:text-gray-400 transition" />
         </a>
       </div>
 
