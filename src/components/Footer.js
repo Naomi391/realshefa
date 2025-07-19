@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa"; 
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -13,7 +13,7 @@ function Footer() {
           <FaFacebook size={24} className="hover:text-gray-400 transition" />
         </a>
         <a
-          href="https://instagram.com/yourpage"
+          href="https://www.instagram.com/the_shefa_bakery/?hl=en"
           target="_blank"
           rel="noopener noreferrer"
         >
