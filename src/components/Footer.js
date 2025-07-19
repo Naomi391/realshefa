@@ -1,12 +1,12 @@
 import React from "react";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa"; // Import social icons
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa"; 
 
 function Footer() {
   return (
     <footer className="w-full bg-black text-white text-center py-4">
       <div className="flex justify-center space-x-6 mb-2">
         <a
-          href="https://facebook.com/yourpage"
+          href="https://www.facebook.com/profile.php?id=61574552080433"
           target="_blank"
           rel="noopener noreferrer"
         >

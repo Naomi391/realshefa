@@ -1,29 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Footer from "../components/Footer";
+import emailjs from "emailjs-com";
 
 function ContactUs() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const formRef = useRef();
 
   const [formStatus, setFormStatus] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can implement the form submission functionality here later
-    setFormStatus("Form submitted successfully!");
-    // Reset form after submission
-    setFormData({ name: "", email: "", message: "" });
+
+    emailjs
+      .sendForm(
+        "service_jrm6dqd",
+        "template_tchb4xz",
+        formRef.current,
+        "5Xzlt1-MPMejY-PeT"
+      )
+      .then(
+        (result) => {
+          console.log("Email sent:", result.text);
+          setFormStatus("✅ Message sent successfully!");
+          formRef.current.reset();
+        },
+        (error) => {
+          console.error("Email failed:", error.text);
+          setFormStatus("❌ Failed to send message. Try again later.");
+        }
+      );
   };
 
   return (
@@ -35,13 +39,16 @@ function ContactUs() {
         <div className="text-lg font-semibold text-gray-800">
           <p>
             Phone:{" "}
-            <a href="tel:+1234567890" className="text-blue-600">
+            <a href="tel:+254742776111" className="text-blue-600">
               0742 776 111
             </a>
           </p>
           <p>
             Email:{" "}
-            <a href="mailto:info@shefabakery.com" className="text-blue-600">
+            <a
+              href="mailto:naomimogiskitchen@gmail.com"
+              className="text-blue-600"
+            >
               naomimogiskitchen@gmail.com
             </a>
           </p>
@@ -76,19 +83,17 @@ function ContactUs() {
         </div>
 
         {/* Contact Form */}
-        <div className="mt-8">
-          <h2 className="text-2xl font-semibold text-gray-800">
-            Send Us an Inquiry
+        <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            Send an Inquiry
           </h2>
-          <form onSubmit={handleSubmit} className="mt-4 space-y-4">
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
             <div>
               <input
                 type="text"
                 name="name"
-                value={formData.name}
-                onChange={handleChange}
                 placeholder="Your Name"
-                className="w-full p-3 border border-gray-300 rounded-md"
+                className="w-full p-3 border border-gray-400 rounded-md"
                 required
               />
             </div>
@@ -96,34 +101,30 @@ function ContactUs() {
               <input
                 type="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
                 placeholder="Your Email"
-                className="w-full p-3 border border-gray-300 rounded-md"
+                className="w-full p-3 border border-gray-400 rounded-md"
                 required
               />
             </div>
             <div>
               <textarea
                 name="message"
-                value={formData.message}
-                onChange={handleChange}
                 placeholder="Your Message"
                 rows="4"
-                className="w-full p-3 border border-gray-300 rounded-md"
+                className="w-full p-3 border border-gray-400 rounded-md"
                 required
               />
             </div>
             <button
               type="submit"
-              className="bg-pink-600 text-white px-6 py-3 rounded-lg"
+              className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-lg transition"
             >
               Send Message
             </button>
           </form>
 
           {formStatus && (
-            <div className="mt-4 text-lg font-semibold text-gray-700">
+            <div className="mt-4 text-md font-semibold text-gray-700">
               {formStatus}
             </div>
           )}
