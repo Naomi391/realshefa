@@ -75,7 +75,7 @@ function OrderForm() {
   };
 
   return (
-    <div className="pt-20 min-h-screen bg-pink-100 text-center">
+    <div className="pt-20 min-h-screen bg-pink-100 text-center flex flex-col">
       <h1 className="text-4xl font-bold mb-4 text-brown-700">
         Place Your Cake Order
       </h1>
@@ -96,7 +96,10 @@ function OrderForm() {
         shortly!
       </p>
 
-      <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-6">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-lg mx-auto px-4 space-y-6 mb-16"
+      >
         <input
           type="text"
           name="name"
@@ -107,7 +110,6 @@ function OrderForm() {
           required
         />
 
-        {/* Event dropdown */}
         <select
           name="eventDetails"
           value={formData.eventDetails}
@@ -122,7 +124,6 @@ function OrderForm() {
           <option value="Other">Other</option>
         </select>
 
-        {/* Custom Event input */}
         {formData.eventDetails === "Other" && (
           <input
             type="text"
@@ -145,7 +146,6 @@ function OrderForm() {
           required
         />
 
-        {/* Flavour dropdown */}
         <select
           name="cakeFlavour"
           value={formData.cakeFlavour}
@@ -163,7 +163,6 @@ function OrderForm() {
           <option value="Other">Other</option>
         </select>
 
-        {/* Custom Flavour input */}
         {formData.cakeFlavour === "Other" && (
           <input
             type="text"
@@ -209,7 +208,7 @@ function OrderForm() {
         </div>
       )}
 
-      <div className="mt-12">
+      <div className="mt-auto w-full">
         <Footer />
       </div>
     </div>

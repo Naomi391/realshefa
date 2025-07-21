@@ -22,16 +22,16 @@ function About() {
         {/* About the Baker */}
         <div className="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto">
           <h2 className="text-2xl font-semibold text-brown-700 mb-4">
-            Know the Baker
+            Know the Chief Baker
           </h2>
           <p className="text-gray-700 text-lg">
             <strong>Naomi MOGI</strong>, the heart behind Shefa Bakery, is a
             passionate baker with a deep love for creating delightful pastries
-            and cakes. A civil and software engineer by profession, she fell in
-            love with cake making and turned the passion into a thriving
-            business. With years of experience and a commitment to quality,
-            every baked item is crafted with precision, ensuring that customers
-            experience true indulgence with every bite.
+            and cakes. A Civil and Software Engineer by profession, she fell in
+            love with cake and pastry making and turned the passion into a
+            thriving business. With years of experience and a commitment to
+            quality, every baked item is crafted with precision, ensuring that
+            customers experience true indulgence with every bite.
           </p>
         </div>
 

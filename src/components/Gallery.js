@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Footer from "../components/Footer";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+
 import cake1 from "../assets/cake1.jpg";
 import cake2 from "../assets/cake2.jpg";
 import cake3 from "../assets/cake3.jpg";
@@ -49,6 +51,14 @@ import cake47 from "../assets/cake47.jpg";
 import cake48 from "../assets/cake48.jpg";
 import cake49 from "../assets/cake49.jpg";
 import cake50 from "../assets/cake50.jpg";
+import chic1 from "../assets/chic1.jpg";
+import chic2 from "../assets/chic2.jpg";
+import laren1 from "../assets/laren1.jpg";
+import laren2 from "../assets/laren2.jpg";
+import laren3 from "../assets/laren3.jpg";
+import green1 from "../assets/green1.jpg";
+import green2 from "../assets/green2.jpg";
+import wedding from "../assets/wedding.jpg";
 
 const cakes = [
   {
@@ -88,7 +98,12 @@ const cakes = [
   { flavor: "White forest", images: [cake37, cake38, cake39] },
   { flavor: "Mixed flavor", images: [cake42, cake43, cake44, cake45, cake46] },
   { flavor: "Blueberry", images: [cake40, cake41] },
-  { flavor: "Corporate", images: [cake47, cake48, cake49, cake50] },
+  { flavor: "Red Velvet", images: [laren1, laren2, laren3, green1, green2] },
+  {
+    flavor: "Corporate",
+    images: [cake47, cake48, cake49, cake50, chic1, chic2],
+  },
+  { flavor: "Wedding", images: [wedding] },
 ];
 
 function Gallery() {
@@ -120,9 +135,7 @@ function Gallery() {
 
   return (
     <div className="pt-24 text-center bg-pink-100 min-h-screen">
-      {/* Title removed */}
-
-      {/* Flavor Filter */}
+      {/* Filter */}
       <div className="mb-6">
         <label className="text-lg font-semibold text-gray-800 mr-2">
           Filter by Flavor:
@@ -140,7 +153,7 @@ function Gallery() {
         </select>
       </div>
 
-      {/* Cake Gallery */}
+      {/* Gallery */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 max-w-6xl mx-auto">
         {filteredCakes.map((cake) => {
           const maxIndex = cake.images.length - 1;
@@ -151,33 +164,32 @@ function Gallery() {
               key={cake.flavor}
               className="relative bg-white shadow-md p-4 rounded-lg"
             >
-              {/* Image Display (Full Container) */}
               <img
                 src={currentImage}
                 alt={cake.flavor}
                 className="w-full h-96 object-cover rounded-md"
               />
 
-              {/* Navigation Buttons */}
+              {/* Navigation Buttons with Icons */}
               {cake.images.length > 1 && (
                 <>
                   <button
                     onClick={() => handlePrev(cake.flavor, maxIndex)}
                     className="absolute left-4 top-1/2 transform -translate-y-1/2 
-                    bg-gray-900 text-white p-3 rounded-full text-2xl shadow-md 
+                    bg-gray-900 text-white p-3 rounded-full text-3xl shadow-md 
                     hover:bg-gray-700 transition focus:outline-none focus:ring-2 
                     focus:ring-gray-500"
                   >
-                    &#8592;
+                    <FiChevronLeft />
                   </button>
                   <button
                     onClick={() => handleNext(cake.flavor, maxIndex)}
                     className="absolute right-4 top-1/2 transform -translate-y-1/2 
-                    bg-gray-900 text-white p-3 rounded-full text-2xl shadow-md 
+                    bg-gray-900 text-white p-3 rounded-full text-3xl shadow-md 
                     hover:bg-gray-700 transition focus:outline-none focus:ring-2 
                     focus:ring-gray-500"
                   >
-                    &#8594;
+                    <FiChevronRight />
                   </button>
                 </>
               )}
