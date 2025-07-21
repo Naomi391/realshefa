@@ -41,7 +41,7 @@ function Home() {
                 <span className="block font-semibold text-xl">
                   An abundance in taste.
                 </span>
-                Discover the finest artisanal bread and pastries, made fresh
+                Discover the finest artisanal cakes and pastries, made fresh
                 daily with love and the best ingredients.
               </p>
 
